@@ -1,62 +1,63 @@
 # Test Automation for www.tudorgall.com
 
-This repository contains automated test scripts for [www.tudorgall.com](http://www.tudorgall.com). The tests are divided into two frameworks: Selenium (using Python and Pytest) and Robot Framework.
+Automated regression tests for [www.tudorgall.com](https://www.tudorgall.com), covering three frameworks — all written in Python.
 
-## Table of Contents
+| Framework | Folder | Runner |
+|---|---|---|
+| Selenium + Pytest | `SeleniumTests/` | `python SeleniumTests/run.py` |
+| Playwright + Pytest | `PlaywrightTests/` | `python PlaywrightTests/run.py` |
+| Robot Framework | `RobotFrameworkTests/` | `robot RobotFrameworkTests/Tests/*.robot` |
 
-1. [Prerequisites](#prerequisites)
-2. [Installation](#installation)
-   - [Selenium Tests](#selenium-tests)
-   - [Robot Framework Tests](#robot-framework-tests)
-3. [Running the Tests](#running-the-tests)
-   - [Selenium Tests](#running-selenium-tests)
-   - [Robot Framework Tests](#running-robot-framework-tests)
-4. [Contact Information](#contact-information)
+Each framework covers the same 5 test modules:
+- **TC001** — Navigate directly to each page
+- **TC002** — Navigate between pages via header/footer links
+- **TC003** — Inner element interaction (CTA buttons, social media links, contact info)
+- **TC004** — CV PDF download link validation
+- **TC005** — Contact form submission (empty, gradual, required fields only)
 
 ## Prerequisites
 
 - Python 3.8+
-- Pip
-- ChromeDriver
+- pip
+- ChromeDriver (Selenium only — must match your installed Chrome version)
 
 ## Installation
 
-Clone this repository and navigate into the project folder.
+Clone the repository, then install dependencies for whichever framework(s) you want to run.
 
-### Selenium Tests
-
-For Selenium tests, run the following command:
-
+### Selenium
 ```bash
 pip install -r SeleniumTests/requirements.txt
 ```
 
-### Robot Framework Tests
+### Playwright
+```bash
+pip install -r PlaywrightTests/requirements.txt
+playwright install chromium
+```
 
-For Robot Framework tests, run:
-
+### Robot Framework
 ```bash
 pip install -r RobotFrameworkTests/requirements.txt
 ```
 
-## Running the Tests
+## Running the tests
 
-### Running Selenium Tests
-
-To run the Selenium tests, execute the following command from the root directory:
-
+### Selenium
 ```bash
-python ./SeleniumTests/run.py
+python SeleniumTests/run.py
 ```
 
-### Running Robot Framework Tests
-
-To run the Robot Framework tests, execute the following command from the root directory:
-
+### Playwright
 ```bash
-robot ./RobotFrameworkTests/Tests/*.robot
+python PlaywrightTests/run.py
 ```
 
-## Contact Information
+### Robot Framework
+```bash
+robot RobotFrameworkTests/Tests/*.robot
+```
 
-For any queries, please contact Tudor Gall at xgalltudor@yahoo.com.
+## Contact
+
+Tudor Gall — [xgalltudor@yahoo.com](mailto:xgalltudor@yahoo.com)
